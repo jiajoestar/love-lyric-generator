@@ -50,12 +50,14 @@ body {
     min-height: 100vh;
 }
 
+/*
 footer {
   margin-top: auto;
   padding-top: 100px;
   text-align: center;
   width: auto;
 }
+*/
 
 /* making it suitable for mobile :) */
 
@@ -73,11 +75,13 @@ footer {
     padding: 150px 40px 30px;
   }
 
+  /*
   footer {
     margin-top: auto;
     padding-top: 100px;
     width: auto;
   }
+  */
 
 
 

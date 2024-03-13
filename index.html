@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <title>love songs 4 you</title>
+        <link rel="icon" type="image/x-icon" href="images/favicon.png"/>
+        <link rel="stylesheet" type="text/css" href="style.css"/>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+
+    <body>
+        <h2>suddenly all the love songs were about you</h2>
+        <p></p>
+        <button id="shuffleButton">shuffle</button>
+
+        <!-- javascript code -->
+
+        <script>
+            const lyrics = ["you are my church,\nyou are my place of worship\n\nmelting, kali uchis",
+            "i need to do this right with you\n(i mean, if you want to)\n\nmoonlight, dhruv",
+            "i wish i could paint our love\n\ncoffee, miguel",
+            "i pray that i can learn to be funny\ni'm watching every stand-up comedy\njust hoping that it'll rub off on me\nso you'll smile at everything i say\n\nmelting, kali uchis",
+            "can we go where no one else goes?\ncan i know what no one else knows?\ncan we fall in love in the moonlight?\n\nmoonlight, dhruv",
+            "but there's nothing like doing nothing with you\n\nnothing, bruno major",
+            "my universe, my everything, my sunset\nyou still give me butterflies\n\nuniverse, thuy",
+            "you got me singing love songs\n\nlove songs, kaash paige",
+            "you're my four-leaf clover\ni'm so in love, so in love\n\njapanese denim, daniel caesar",
+            "every time i look into your eyes i see it\nyou're all i need\n\nget you, daniel caesar",
+            "i can't lose when i'm with you\n\nsnooze, sza",
+            "with you, it's warm forever,\nand i love this weather\n\nsummertime, s3unn",
+            "you looked back at me once\nbut i looked back two times\n\nright side of my neck, faye webster",
+            "never thought i'd find you\nbut you're here and so i love you\n\nglue song, beabadoobee",
+            "i'm not wrong when i say\ni've been stuck by the glue onto you\n\nglue song, beabadoobee",
+            "how could my day be bad when i'm with you?\nyou're the only one who makes me laugh\n\nbad, wave to earth",
+            "there's a brown hue in your eyes\nhow pretty it is\ni think i'm in love\n\nbad, wave to earth",
+            "you're the coffee that i need in the morning\n\nbest part, daniel caesar & h.e.r",
+            "you're the one that i desire\n\nbest part, daniel caesar & h.e.r",
+            "if life is a movie,\nyou're the best part\n\nbest part, daniel caesar & h.e.r",
+            "you're my water when i'm stuck in the desert\n\nbest part, daniel caesar & h.e.r",
+            "as long as i'm with you\ni've got a smile on my face\n\nhere with me, d4vd",
+            "i wanna be your vacuum cleaner\nbreathing in your dust\n\ni wanna be yours, arctic monkeys",
+            "if you like your coffee hot\nlet me be your coffee pot\n\ni wanna be yours, arctic monkeys",
+            "if you're not here with me, my favourite one\ni might as well just go\n\nmy favourite clothes, rini",
+            "we could stay inside together\nyou and i in matching sweaters\nand though it may just be forever\nme and you could beat the weather\n\nso mean, afternoon, love-sadkid, mxmtoon, samsa",
+            "follow my lead,\ni think god made you for me\n\nfollow my lead, 50cent & robin thicke",
+            "but nobody else holds a candle to you\n\nceliné, gallant",
+            "you are the only thing that can ease my mind\non days like these\n\ni wish you love, khai dreams & ray",
+            "i think i'm better when i'm with you\n\nultimately, khai dreams",
+            "i could lay here with you and\nwatch the world turn\nnever say a word\n\ndrifting away, khai dreams",
+            "i'll stay by your side, my dear\nwe will have nothing to fear\n\ndrifting away, khai dreams",
+            "now i just want me and you\nto watch the sun set\njust soaking the view\n\ndrifting away, khai dreams",
+            "it's so lovely loving you\n\nsunkissed, khai dreams",
+            "you said you liked the jumper i wore\nso i always wore it\n\napple cider, beabadoobee",
+            "spend a summer or a lifetime with me\nlet me take you to the place of your dreams\ntell me,\ndo you feel the love?\n\ndouble take, dhruv",
+            "the brown in your eyes\nmakes me feel warm inside\n\ncoffee, beabadoobee",
+            "'cause i just had a dream i was dead\nand i only cared 'cause i was taken from you\n\nmosquito, pinkpantheress",
+            "the distance and the time between us\nit'll never change my mind 'cause\nbaby i would die for you\n\ndie for you, the weeknd",
+            "you notice everything\nso i give my everything\n\neverything, ella mai & john legend",
+            "never been good at trusting\nbut there's something 'bout you i'm in love with\n\ni say that i'm fine, but you know that i'm lying\nyou read between all the lines\n love the way you pay attention\n\neverything, ella mai & john legend",
+            "there's nowhere we need to be\ni'ma get to know you better\nkinda hope we're here forever\nthere's nobody on these streets\nif you told me that the world's ending\nain't no other way that i could spend it\n\nstuck with u, ariana grande & justin bieber",
+            "be your lover, your friend, you'll find it all in me\nstay by your side, i'll never leave you\nsaid i ain't going nowhere 'cause you're a keeper\n\nthe way, ariana grande & mac miller",
+            "you brought me to life\nnow every february, you'll be my valentine\n\nteenage dream, katy perry",
+            "you know i'll do anything you ask me to\nbut oh my god, i think i'm in love with you\n\nsofia, clairo",
+            "hands down, i'm too proud for love\nbut with eyes shut, it's you i'm thinkin' of\n\nlittle bit, drake & lykke li",
+            "i guess that i'm a little bit,\na little bit\na little bit in love with you\n\nlittle bit, drake & lykke li",
+            "kissing, i hope they caught us\nwhether they like or not\ni wanna show you off\n\nagora hills, doja cat",
+            ""];
+
+            const shuffleButton = document.getElementById("shuffleButton");
+
+            function formatLyric(lyric) {
+                return lyric.replace(/\n/g, '<br>');
+            }
+
+            function shuffleRandomLyric() {
+                const randomIndex = Math.floor(Math.random() * lyrics.length);
+                const randomLyric = lyrics[randomIndex];
+                const formattedLyric = formatLyric(randomLyric);
+                document.querySelector("p").innerHTML = formattedLyric;
+            }
+
+            shuffleButton.addEventListener("click", shuffleRandomLyric);
+        
+        </script>
+
+    </body>
+</html>
